@@ -8,21 +8,12 @@ Quantized (W4A16):  835.3 MB
 Reduction:          42%
 The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
 Base Model (models/Qwen3-0.6B)
-Prompt: AI Inference is
-Response:  a process that allows for the use of AI models to make predictions or decisions based on data. It involves the use of machine learning algorithms to analyze data and make predictions. The process is often used in various fields such as healthcare, finance, and customer service. In this article, we will explore the
-Compressing model: 196it [00:00, 2943.10it/s]
+Prompt: What is AI inference?
+Response: AI inference refers to the process of using artificial intelligence (AI) systems to make decisions, predictions, or provide solutions based on data. It involves training a model with a large dataset, then using that model to analyze new data and provide insights or actions. For example, in healthcare, AI inference might
+Compressing model: 196it [00:00, 2935.17it/s]
 Quantized Model (models/Qwen3-0.6B-W4A16)
-Prompt: AI Inference is
-Response:  a process that allows the model to generate a new output based on the input. This process is known as __________.
-Answer:
-
-The process of generating a new output based on the input is called **inference**.
-
-So, the answer is **inference**.
-
-**Answer:** Inference
-
-
+Prompt: What is AI inference?
+Response: AI inference refers to the process of using artificial intelligence (AI) to make decisions or predictions based on data. It involves training models to understand patterns and making predictions from that data. For example, in healthcare, AI inference might help identify diseases by analyzing medical images or in finance, it might predict stock
 Loaded 256 test samples
 Quantized perplexity: 12.40
 Base perplexity: 11.71
@@ -33,5 +24,3 @@ Quantized (W4A16): 12.40
 Difference:       +0.69 (+5.9%)
 
 FYI: A small increase in perplexity is expected the quantized layers use 4-bit weights.
-
-Click to add a cell.

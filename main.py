@@ -101,7 +101,19 @@ print(f"Original (BF16):    {format_size(size_orig)}")
 print(f"Quantized (W4A16):  {format_size(size_q)}")
 print(f"Reduction:          {reduction:.0f}%")
 
-prompt = "AI Inference is"
+prompt = "What is AI inference?"
+chat_messages = [{"role": "user", "content": prompt}]
+
+
+def build_chat_inputs():
+    return tokenizer.apply_chat_template(
+        chat_messages,
+        add_generation_prompt=True,
+        return_tensors="pt",
+        return_dict=True,
+        enable_thinking=False,
+    )
+
 
 base_model = AutoModelForCausalLM.from_pretrained(
     MODEL_DIR,
@@ -109,7 +121,7 @@ base_model = AutoModelForCausalLM.from_pretrained(
     dtype=torch.bfloat16,
 )
 
-inputs = tokenizer(prompt, return_tensors="pt")
+inputs = build_chat_inputs()
 outputs = base_model.generate(
     **inputs,
     max_new_tokens=60,
@@ -128,7 +140,7 @@ quant_model = AutoModelForCausalLM.from_pretrained(
     dtype=torch.bfloat16,
 )
 
-inputs = tokenizer(prompt, return_tensors="pt")
+inputs = build_chat_inputs()
 outputs = quant_model.generate(
     **inputs,
     max_new_tokens=60,
