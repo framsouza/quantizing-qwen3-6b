@@ -1,0 +1,39 @@
+```bash
+Base model:      models/Qwen3-0.6B
+Quantized model: models/Qwen3-0.6B-W4A16
+Recipe: config_groups=None targets=['Linear'] ignore=['lm_head'] scheme='W4A16' kv_cache_scheme=None weight_observer=None input_observer=None output_observer=None observer=None bypass_divisibility_checks=False index=None group=None start=None end=None update=None initialized_=False finalized_=False started_=False ended_=False sequential_targets=None block_size=128 dampening_frac=0.01 actorder=static offload_hessians=False
+Model Size Comparison
+=============================================
+Original (BF16):    1.41 GB
+Quantized (W4A16):  835.3 MB
+Reduction:          42%
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+Base Model (models/Qwen3-0.6B)
+Prompt: AI Inference is
+Response:  a process that allows for the use of AI models to make predictions or decisions based on data. It involves the use of machine learning algorithms to analyze data and make predictions. The process is often used in various fields such as healthcare, finance, and customer service. In this article, we will explore the
+Compressing model: 196it [00:00, 2943.10it/s]
+Quantized Model (models/Qwen3-0.6B-W4A16)
+Prompt: AI Inference is
+Response:  a process that allows the model to generate a new output based on the input. This process is known as __________.
+Answer:
+
+The process of generating a new output based on the input is called **inference**.
+
+So, the answer is **inference**.
+
+**Answer:** Inference
+
+
+Loaded 256 test samples
+Quantized perplexity: 12.40
+Base perplexity: 11.71
+Perplexity Comparison
+========================================
+Base (BF16):      11.71
+Quantized (W4A16): 12.40
+Difference:       +0.69 (+5.9%)
+
+FYI: A small increase in perplexity is expected the quantized layers use 4-bit weights.
+
+Click to add a cell.
+```
